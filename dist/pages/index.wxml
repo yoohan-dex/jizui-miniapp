@@ -1,0 +1,18 @@
+
+  <view>
+    
+  <view class="header">
+    <image mode="aspectFill" src="{{$header$img}}"/>
+  </view>
+
+    
+  <view class="category">
+    <view class="category-item"  wx:for-items="{{$category$cans}}" wx:key="id">
+      <view class="wrap">
+        <image mode="aspectFit" src="../assets/images/can-{{index}}.png"/>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  </view>

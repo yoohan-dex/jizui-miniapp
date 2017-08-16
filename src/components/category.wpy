@@ -1,0 +1,81 @@
+<style lang="less">
+  .category-title {
+    position: absolute;
+    top: 56%;
+    width: 100%;
+    text-align: center;
+    font-size: 50rpx;
+    margin: 30rpx 0;
+    color: #1296db;
+    display: block;
+  }
+  .category {
+    position: absolute;
+    width: 100%;
+    height: 44%;
+    top: 56%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .category-item {
+      width: 50%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .wrap {
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        image {
+          width: 50%;
+          height: 50%;
+          flex-shrink: 0;
+        }
+        text {
+          font-size: 30rpx;
+          display: block;
+          position: relative;
+          top: 30rpx;
+          text-align: center;
+        }
+      }
+    }
+  }
+</style>
+<template>
+  <view class="category">
+    <view class="category-item" wx:for-items="{{cans}}" wx:key="id">
+      <view class="wrap">
+        <image mode="aspectFit" src="../assets/images/can-{{index}}.png" />
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Counter extends wepy.component {
+    props = {
+      num: {
+        type: [Number, String],
+        coerce: function (v) {
+          return +v
+        },
+        default: 50
+      }
+    }
+    methods = {
+      current(i) {
+        console.log(i)
+      }
+    }
+    data = {
+      cans: ['App开发', '网站开发', '微信小程序开发', '公众号病毒式营销']
+    }
+  }
+</script>
